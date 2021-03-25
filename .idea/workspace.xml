@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e205c1c-7e1e-4d31-8db3-3d1749f66e30" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-    </list>
+    <list default="true" id="6e205c1c-7e1e-4d31-8db3-3d1749f66e30" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +37,6 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.RUBY_MODULE" value="ruby-3.0.0-p0" />
@@ -252,7 +249,7 @@
       <option name="presentableId" value="Default" />
       <updated>1616594153100</updated>
       <workItem from="1616594154337" duration="1587000" />
-      <workItem from="1616690567761" duration="30000" />
+      <workItem from="1616690567761" duration="356000" />
     </task>
     <servers />
   </component>
@@ -271,22 +268,22 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1037" height="559" key="GridCell.Tab.0.bottom" timestamp="1616594307439">
+    <state width="1037" height="559" key="GridCell.Tab.0.bottom" timestamp="1616690605229">
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
-    <state width="1037" height="559" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616594307439" />
-    <state width="1037" height="559" key="GridCell.Tab.0.center" timestamp="1616594307439">
+    <state width="1037" height="559" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616690605229" />
+    <state width="1037" height="559" key="GridCell.Tab.0.center" timestamp="1616690605229">
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
-    <state width="1037" height="559" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616594307439" />
-    <state width="1037" height="559" key="GridCell.Tab.0.left" timestamp="1616594307439">
+    <state width="1037" height="559" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616690605229" />
+    <state width="1037" height="559" key="GridCell.Tab.0.left" timestamp="1616690605229">
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
-    <state width="1037" height="559" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616594307439" />
-    <state width="1037" height="559" key="GridCell.Tab.0.right" timestamp="1616594307439">
+    <state width="1037" height="559" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616690605229" />
+    <state width="1037" height="559" key="GridCell.Tab.0.right" timestamp="1616690605229">
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
-    <state width="1037" height="559" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616594307439" />
+    <state width="1037" height="559" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616690605229" />
     <state x="1940" y="514" key="SettingsEditor" timestamp="1616690596040">
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
@@ -295,5 +292,8 @@
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
     <state x="1920" y="600" key="new project wizard/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616690592194" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Woo@Development__Woo.rcov" NAME="Development: Woo Coverage Results" MODIFIED="1616690922243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Woo" />
   </component>
 </project>
