@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7c3c2772-5a59-4e5e-8735-ad1ddb074de4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/home/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/woo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/woo.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,17 +73,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Rails.Development: woo">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Development: woo" type="RailsRunConfigurationType" factoryName="Rails">
       <module name="woo" />
       <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
@@ -163,6 +174,8 @@
       <updated>1616692919117</updated>
       <workItem from="1616692920200" duration="38000" />
       <workItem from="1616693743376" duration="1812000" />
+      <workItem from="1616770854685" duration="978000" />
+      <workItem from="1616771851977" duration="663000" />
     </task>
     <servers />
   </component>
@@ -179,24 +192,25 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1037" height="559" key="GridCell.Tab.0.bottom" timestamp="1616695670391">
+    <state width="1037" height="559" key="GridCell.Tab.0.bottom" timestamp="1616771841359">
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
-    <state width="1037" height="559" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616695670391" />
-    <state width="1037" height="559" key="GridCell.Tab.0.center" timestamp="1616695670390">
+    <state width="1037" height="559" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616771841359" />
+    <state width="1037" height="559" key="GridCell.Tab.0.center" timestamp="1616771841359">
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
-    <state width="1037" height="559" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616695670390" />
-    <state width="1037" height="559" key="GridCell.Tab.0.left" timestamp="1616695670390">
+    <state width="1037" height="559" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616771841359" />
+    <state width="1037" height="559" key="GridCell.Tab.0.left" timestamp="1616771841359">
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
-    <state width="1037" height="559" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616695670390" />
-    <state width="1037" height="559" key="GridCell.Tab.0.right" timestamp="1616695670390">
+    <state width="1037" height="559" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616771841359" />
+    <state width="1037" height="559" key="GridCell.Tab.0.right" timestamp="1616771841359">
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
-    <state width="1037" height="559" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616695670390" />
+    <state width="1037" height="559" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616771841359" />
     <state width="1037" height="559" key="GridCell.Tab.1.bottom" timestamp="1616695670391">
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
@@ -223,6 +237,6 @@
     <state x="1920" y="600" key="new project wizard/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616692953500" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Woo@Development__woo.rcov" NAME="Development: woo Coverage Results" MODIFIED="1616695670383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="woo" />
+    <SUITE FILE_PATH="coverage/Woo@Development__woo.rcov" NAME="Development: woo Coverage Results" MODIFIED="1616773208159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="woo" />
   </component>
 </project>
