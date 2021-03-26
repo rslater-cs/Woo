@@ -19,14 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c3c2772-5a59-4e5e-8735-ad1ddb074de4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
+    <list default="true" id="7c3c2772-5a59-4e5e-8735-ad1ddb074de4" name="Default Changelist" comment="included gem for postgresql">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/woo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/woo.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,8 +169,16 @@
       <workItem from="1616692920200" duration="38000" />
       <workItem from="1616693743376" duration="1812000" />
       <workItem from="1616770854685" duration="978000" />
-      <workItem from="1616771851977" duration="663000" />
+      <workItem from="1616771851977" duration="1899000" />
     </task>
+    <task id="LOCAL-00001" summary="included gem for postgresql">
+      <created>1616773287152</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616773287152</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,23 +196,27 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="included gem for postgresql" />
+    <option name="LAST_COMMIT_MESSAGE" value="included gem for postgresql" />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1037" height="559" key="GridCell.Tab.0.bottom" timestamp="1616771841359">
+    <state width="1037" height="559" key="GridCell.Tab.0.bottom" timestamp="1616773208200">
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
-    <state width="1037" height="559" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616771841359" />
-    <state width="1037" height="559" key="GridCell.Tab.0.center" timestamp="1616771841359">
+    <state width="1037" height="559" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616773208200" />
+    <state width="1037" height="559" key="GridCell.Tab.0.center" timestamp="1616773208199">
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
-    <state width="1037" height="559" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616771841359" />
-    <state width="1037" height="559" key="GridCell.Tab.0.left" timestamp="1616771841359">
+    <state width="1037" height="559" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616773208199" />
+    <state width="1037" height="559" key="GridCell.Tab.0.left" timestamp="1616773208199">
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
-    <state width="1037" height="559" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616771841359" />
-    <state width="1037" height="559" key="GridCell.Tab.0.right" timestamp="1616771841359">
+    <state width="1037" height="559" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616773208199" />
+    <state width="1037" height="559" key="GridCell.Tab.0.right" timestamp="1616773208200">
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
-    <state width="1037" height="559" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616771841359" />
+    <state width="1037" height="559" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1616773208200" />
     <state width="1037" height="559" key="GridCell.Tab.1.bottom" timestamp="1616695670391">
       <screen x="1920" y="0" width="1080" height="1880" />
     </state>
