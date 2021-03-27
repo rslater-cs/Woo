@@ -22,7 +22,7 @@ class AdultsController < ApplicationController
   # POST /adults or /adults.json
   def create
     @user = User.new(params[:user])
-    @adult = adult.new(params[:adult])
+    @adult = Adult.new(params[:patron])
     @user.role = @adult
     @adult.save
     @user.save
