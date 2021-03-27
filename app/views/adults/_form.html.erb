@@ -1,0 +1,14 @@
+<%= form_for @adult do |adult_fields| %>
+  <%= fields_for :user do |user_fields| %>
+    <%= user_fields.label :email %>
+    <%= user_fields.email_field :email %>
+    <%= user_fields.label :forename %>
+    <%= user_fields.email_field :forename %>
+    <%= user_fields.label :surename %>
+    <%= user_fields.email_field :surname %>
+    <%= user_fields.label :password %>
+    <%= user_fields.password_field :password %>
+    <%= user_fields.label :password_confirmation %>
+    <%= user_fields.password_field :password_confirmation %>
+  <%= f.submit %>
+<% end %>

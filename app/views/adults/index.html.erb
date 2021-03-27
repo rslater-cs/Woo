@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Adults</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @adults.each do |adult| %>
+      <tr>
+        <td><%= link_to 'Show', adult %></td>
+        <td><%= link_to 'Edit', edit_adult_path(adult) %></td>
+        <td><%= link_to 'Destroy', adult, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Adult', new_adult_path %>
