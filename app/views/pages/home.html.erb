@@ -1,1 +1,14 @@
 <h1>Homie Page</h1>
+
+<p>This all needs to be put into a nav partial and then rendered in 'views/pages/layouts/application.html.erb'</p>
+<%= link_to 'Home', root_path %> |
+<%= link_to 'About Us', pages_about_us_path %> |
+<%= link_to 'Contact Us', pages_contact_path %> |
+<%= link_to 'All Users', users_path %> |
+<% if user_signed_in? %>
+	<%= link_to 'Profile', user_path(current_user) %> |
+	<%= link_to 'Logout', destroy_user_session_path, method: :delete %> |
+<% else %>
+	<%= link_to 'Login', new_user_session_path %> |
+	<%= link_to 'Sign Up', new_user_registration_path %>
+<% end %>

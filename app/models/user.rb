@@ -11,4 +11,7 @@ class User < ApplicationRecord
   	end
   end
 
+  def full_name
+    "#{forename} #{surname}"
+  end
 end
