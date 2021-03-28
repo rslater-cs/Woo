@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
   enum role: [:adult, :child, :tutor]
   after_initialize do
   	if self.new_record?
   		self.role ||= :adult
   	end
   end
+
 end
