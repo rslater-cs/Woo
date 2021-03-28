@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+/woo.iml
+/.idea
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-*
