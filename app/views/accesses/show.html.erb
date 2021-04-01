@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Relid:</strong>
+  <%= @access.relID %>
+</p>
+
+<p>
+  <strong>Videolink:</strong>
+  <%= @access.videolink %>
+</p>
+
+<%= link_to 'Edit', edit_access_path(@access) %> |
+<%= link_to 'Back', accesses_path %>

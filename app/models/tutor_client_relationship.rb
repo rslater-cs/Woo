@@ -1,0 +1,2 @@
+class TutorClientRelationship < ApplicationRecord
+end

@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_28_180503) do
+ActiveRecord::Schema.define(version: 2021_04_01_085518) do
+
+  create_table "accesses", force: :cascade do |t|
+    t.integer "relID"
+    t.string "videolink"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tutor_client_relationships", force: :cascade do |t|
+    t.integer "tutorID"
+    t.integer "clientID"
+    t.integer "relID"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

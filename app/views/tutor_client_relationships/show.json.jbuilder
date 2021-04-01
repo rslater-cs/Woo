@@ -1,0 +1,1 @@
+json.partial! "tutor_client_relationships/tutor_client_relationship", tutor_client_relationship: @tutor_client_relationship

@@ -1,0 +1,27 @@
+<%= form_with(model: access) do |form| %>
+  <% if access.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(access.errors.count, "error") %> prohibited this access from being saved:</h2>
+
+      <ul>
+        <% access.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :relID %>
+    <%= form.number_field :relID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :videolink %>
+    <%= form.text_field :videolink %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

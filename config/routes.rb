@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :accesses
+  resources :tutor_client_relationships
   devise_for :users
   resources :users, only: [:index, :show, :edit, :update]
 
