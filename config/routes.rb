@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   get 'pages/about_us'
   get 'pages/contact'
+  get 'pages/tutor_list'
   root "pages#home"
 end

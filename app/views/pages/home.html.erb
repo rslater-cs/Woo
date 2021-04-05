@@ -5,6 +5,7 @@
 <%= link_to 'About Us', pages_about_us_path %> |
 <%= link_to 'Contact Us', pages_contact_path %> |
 <%= link_to 'All Users', users_path %> |
+<%= link_to 'All tutors', pages_tutor_list_path %> |
 <% if user_signed_in? %>
 	<%= link_to 'Profile', user_path(current_user) %> |
 	<%= link_to 'Logout', destroy_user_session_path, method: :delete %> |

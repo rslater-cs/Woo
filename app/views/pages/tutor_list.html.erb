@@ -1,0 +1,13 @@
+<h1>List of all Tutors</h1>
+
+<% @users = User.all %>
+<% @users.each do |u| %>
+  <% if u.role == 'tutor' %>
+      <tr>
+        <td><%= u.forename %></td>
+        <td><%= u.surname %></td>
+        <td>placeholder for a button</td>
+      </tr>
+      <br>
+  <% end %>
+<% end %>
