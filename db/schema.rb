@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_085518) do
+ActiveRecord::Schema.define(version: 2021_04_07_125905) do
 
   create_table "accesses", force: :cascade do |t|
     t.integer "relID"
     t.string "videolink"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "families", force: :cascade do |t|
+    t.integer "parentID"
+    t.integer "childID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

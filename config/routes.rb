@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :families
   resources :accesses
   resources :tutor_client_relationships
   devise_for :users
