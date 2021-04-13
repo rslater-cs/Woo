@@ -10,6 +10,10 @@ class UsersController < ApplicationController
 	  	@user = User.find(params[:id])
 	end
 
+	def new
+		@user = User.new
+	end
+
 	def edit
 		@user = current_user
 	end
@@ -24,6 +28,17 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def create
+		@user = User.new(new_user_params)
+		@user.role = 'child'
+		if @user.save
+			redirect_to users_url, notice: "User successfully created"
+		else
+			render :new
+		end
+	end
+
+
 	private
 
 	def user_params
@@ -32,6 +47,16 @@ class UsersController < ApplicationController
 			:surname,
 			:phone,
 			:dob,
+		)
+	end
+
+	def new_user_params
+		params.require(:user).permit(
+			:forename,
+			:surname,
+			:email,
+			:password,
+			:password_confirmation,
 		)
 	end
 

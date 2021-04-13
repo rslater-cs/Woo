@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   resources :families
   resources :accesses
   resources :tutor_client_relationships
-  devise_for :users
-  resources :users, only: [:index, :show, :edit, :update]
+  devise_for :users, :path => 'u'
+  resources :users, only: [:index, :show, :new, :edit, :update, :create]
 
   get 'pages/about_us'
   get 'pages/contact'

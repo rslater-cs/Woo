@@ -4,4 +4,5 @@
 
 <% if current_user.id == @user.id %>
 	<%= link_to 'Edit My Profile', edit_user_path(current_user) %>
+	<%= link_to 'Create Child Profile', new_user_path %>
 <% end %>
