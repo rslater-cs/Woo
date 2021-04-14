@@ -3,7 +3,7 @@
 <%= form_with url: "", method: :get do |form| %>
   <%= form.label :query, "Filter:" %>
   <%= form.collection_select :query, TutorSubject.select(:subject).distinct, :subject, :subject, prompt: "Show All" %>
-  <%= form.submit "Search" %>
+  <%= form.submit "Search"%>
 <% end %>
 
 <%
@@ -17,15 +17,14 @@
 %>
 
 <% @users.each do |tutor| %>
-  <p><%= tutor.id %> <%= tutor.forename %> <%= tutor.surname %> <%= tutor.role %></p>
-  <%
-    subjects = "|"
-    TutorSubject.where(tutorID: tutor.id).each do |subject|
-      subjects += subject.subject
-      subjects += "|"
-    end
-  %>
-  <p><%= subjects %></p>
+  <div class="card">
+    <p><%= tutor.forename %> <%= tutor.surname %></p>
+    <%TutorSubject.where(tutorID: tutor.id).each do |subject|%>
+        <div class="card">
+          <p><%= subject.subject %></p>
+        </div>
+    <%end%>
 
-  <%= link_to "See Tutor Profile", user_path(tutor.id) %>
+    <%= button_to "See Tutor Profile", user_path(tutor.id), method: :get %>
+  </div>
 <% end %>
