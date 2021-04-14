@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tutor_subjects
   resources :families
   resources :accesses
   resources :tutor_client_relationships
