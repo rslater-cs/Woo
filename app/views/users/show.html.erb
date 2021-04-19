@@ -1,7 +1,24 @@
 <h1><% @user.full_name %></h1>
 
+<% if current_user.id == @user.id %>
+  <p><strong><u>Public Profile</u></strong></p>
+<% end %>
+
+<p><strong><%= @user.full_name %></strong></p>
 <p><strong>Role:</strong> <%= @user.role %></p>
 
+<% if @user.role == 'tutor' %>
+	<p><strong>Subjects:</strong><p>
+	<%= subj %>
+<% end %>
+
+<% if @user.role == 'tutor' %>
+	<p><u>Contact tutor</u> &nbsp; (link this to contact hub) </p>
+<% end %>
+
 <% if current_user.id == @user.id %>
+	<p><strong><u>Private Info</u></strong></p>
+	<p><strong>Phone:</strong> <%= @user.phone %></p>
+	<p><strong>D.O.B:</strong> <%= @user.dob %></p>
 	<%= link_to 'Edit My Profile', edit_user_path(current_user) %>
 <% end %>

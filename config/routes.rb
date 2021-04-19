@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :tutor_client_relationships
   devise_for :users
   resources :users, only: [:index, :show, :edit, :update]
+  #resources :users do 
+    #resources :recruiters #-> url.com/users/:user_id/recruiters
+  #end
 
   get 'pages/about_us'
   get 'pages/contact'

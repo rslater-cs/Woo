@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
 	def index
 		@users = User.all
+		@tutor_subjects = TutorSubject.all
 	end
 
 	def show
@@ -23,6 +24,19 @@ class UsersController < ApplicationController
 			end
 		end
 	end
+
+	#helper method to display tutor's subjects on their profile pages
+	def subj
+		@tutor_subjects = TutorSubject.all
+		subjStr = String.new("")
+		@tutor_subjects.each do |tutor_subject|
+			if tutor_subject.tutorID == @user.id
+				subjStr = subjStr + tutor_subject.subject.capitalize! + " "
+			end
+		end
+	return subjStr
+	end
+	helper_method :subj
 
 	private
 
