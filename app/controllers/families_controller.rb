@@ -21,7 +21,7 @@ class FamiliesController < ApplicationController
 
   # POST /families or /families.json
   def create
-    @family = Family.new(family_params)
+    @family = Family.new
 
     respond_to do |format|
       if @family.save

@@ -7,6 +7,9 @@ class User < ApplicationRecord
   validates :forename, :surname, presence: true
   enum role: [:adult, :child, :tutor]
 
+  has_many :parents, :class_name => 'Family', :foreign_key => 'parentID'
+  has_many :children, :class_name => 'Family', :foreign_key => 'childID'
+
   after_initialize do
   	if self.new_record?
   		self.role ||= :adult
