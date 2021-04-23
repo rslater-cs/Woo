@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get 'pages/about_us'
   get 'pages/contact'
+  post 'request_contact', to: 'pages#request_contact'
   get 'pages/tutor_list'
   get 'pages/bootstrap_test'
   root "pages#home"
