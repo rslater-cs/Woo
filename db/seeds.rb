@@ -31,6 +31,31 @@ users.each do |user|
 	this_user.save
 end
 
+# families = [
+# 	{ email: 'chris@example.com', forename: 'Chris', surname: 'Ellis', role: 'adult', password: 'password', password_confirmation:'password'},
+# 	{ email: 'isayah@example.com', forename: 'Isayah', surname: 'Wedderburn', role: 'tutor', password: 'password', password_confirmation:'password'},
+# 	{ email: 'felipe@example.com', forename: 'Felipe', surname: 'D\'Abrantes', role: 'child', password: 'password', password_confirmation:'password'},
+# 	{ email: 'abel@example.com', forename: 'Abel', surname: 'Csanaki', role: 'adult', password: 'password', password_confirmation:'password'},
+# 	{ email: 'fahad@example.com', forename: 'Fahad', surname: 'Khalaf', role: 'tutor', password: 'password', password_confirmation:'password'},
+# 	{ email: 'ryan@example.com', forename: 'Ryan', surname: 'Slater', role: 'child', password: 'password', password_confirmation:'password'},
+# 	{ email: 'madelaine@example.com', forename: 'Madelaine', surname: 'Donoher-Lambden', role: 'adult', password: 'password', password_confirmation:'password'},
+# ]
+#
+# families.each do |user|
+# 	this_user = User.where(
+# 		email: user[:email],
+# 		).first_or_initialize
+#
+# 	this_user.update!(
+# 		forename: user[:forename],
+# 		surname: user[:surname],
+# 		role: user[:role],
+# 		password: user[:password],
+# 		password_confirmation: user[:password_confirmation],
+# 		)
+# 	this_user.save
+# end
+
 RELONE = TutorClientRelationship.where(id: 1).first
 RELONE.delete if RELONE
 
@@ -41,21 +66,40 @@ ACCESSONE.delete if ACCESSONE
 
 accessone = Access.create([relID: 1, videolink: "www.youtube.com"])
 
+
 subjects = [
-		{ subjectID: 0, tutorID: 3, subject: 'computer science'},
-		{ subjectID: 1, tutorID: 6, subject: 'english'},
-		{ subjectID: 2, tutorID: 3, subject: 'mathematics'}
+	{ subjectID: 0, name: "computer science"},
+	{ subjectID: 1, name: "mathematics"},
+	{ subjectID: 2, name: "english"}
 ]
 
 subjects.each do |subject|
-	sub = TutorSubject.where(
-      subjectID: subject[:subjectID],
-			).first_or_initialize
+	sub = Subject.where(
+		subjectID: subject[:subjectID],
+		).first_or_initialize
 
 	sub.update!(
-      tutorID: subject[:tutorID],
-      subject: subject[:subject]
-			)
+    name: subject[:name]
+	)
+	sub.save
+end
+
+subject_relationships = [
+	{ relID: 0, subjectID: 0, tutorID: 2},
+	{ relID: 1, subjectID: 1, tutorID: 5},
+	{ relID: 2, subjectID: 2, tutorID: 5},
+	{ relID: 3, subjectID: 2, tutorID: 2}
+]
+
+subject_relationships.each do |subject|
+	sub = TutorSubject.where(
+		relID: subject[:relID]
+	).first_or_initialize
+
+	sub.update!(
+		subjectID: subject[:subjectID],
+		tutorID: subject[:tutorID]
+	)
 	sub.save
 end
 

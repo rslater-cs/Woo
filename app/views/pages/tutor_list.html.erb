@@ -2,7 +2,7 @@
 
 <%= form_with url: "", method: :get do |form| %>
   <%= form.label :query, "Filter:" %>
-  <%= form.collection_select :query, TutorSubject.select(:subject).distinct, :subject, :subject, prompt: "Show All" %>
+  <%= form.collection_select :query, Subject.all, :subjectID, :name, prompt: "Show All" %>
   <%= form.submit "Search"%>
 <% end %>
 
@@ -11,8 +11,9 @@
   if params[:query].blank?
     @users = User.where(role: 'tutor')
   else
-    @tutor_ids = TutorSubject.where(subject: params[:query]).select(:tutorID)
-    @users = User.where(role: 'tutor', id: @tutor_ids)
+    tutor_ids = TutorSubject.where(subjectID: params[:query]).select(:tutorID)
+    @users = User.where(role: 'tutor')
+    @users = @users.where(id: tutor_ids)
   end
 %>
 
@@ -21,7 +22,7 @@
     <p><%= tutor.forename %> <%= tutor.surname %></p>
     <%TutorSubject.where(tutorID: tutor.id).each do |subject|%>
         <div class="card">
-          <p><%= subject.subject %></p>
+          <p><%= Subject.where(subjectID: subject.subjectID)[0].name %></p>
         </div>
     <%end%>
 
