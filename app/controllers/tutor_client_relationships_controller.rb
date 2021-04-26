@@ -9,7 +9,7 @@ class TutorClientRelationshipsController < ApplicationController
   # GET /tutor_client_relationships/1 or /tutor_client_relationships/1.json
   def show
   end
-
+# testing testing 123
   # GET /tutor_client_relationships/new
   def new
     @tutor_client_relationship = TutorClientRelationship.new
