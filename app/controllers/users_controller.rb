@@ -33,6 +33,7 @@ class UsersController < ApplicationController
 		@user = User.new(new_user_params)
 		@user.role = 'child'
 		if @user.save
+			Family.new(parentID: current_user.id, childID: @user.id).save
 			redirect_to users_url, notice: "User successfully created"
 		else
 			render :new
