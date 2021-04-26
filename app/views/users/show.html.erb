@@ -31,4 +31,5 @@ Finally a access entry is created which holds the relationship id and a nil valu
 	<p><strong>Phone:</strong> <%= @user.phone %></p>
 	<p><strong>D.O.B:</strong> <%= @user.dob %></p>
 	<%= link_to 'Edit My Profile', edit_user_path(current_user) %>
+	<%= link_to 'Create Child Profile', new_user_path %>
 <% end %>

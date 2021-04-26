@@ -6,12 +6,13 @@ class ApplicationController < ActionController::Base
 	def configure_permitted_parameters
 		devise_parameter_sanitizer.permit(:sign_up, keys: [:forename, :surname])
 	end
+
 end
-#This method is responsible for finding the full name of the user that is currently signed in
+	#This method is responsible for finding the full name of the user that is currently signed in
 	def get_user_logged_in
 		if current_user != nil
 			return 'Currently signed in as: ' + current_user.forename + ' ' + current_user.surname
 		else
 			return 'You are not logged in!'
+		end
 	end
-end
