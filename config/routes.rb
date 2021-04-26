@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :subjects
   resources :tutor_subjects
   resources :families
   resources :accesses
@@ -13,5 +14,6 @@ Rails.application.routes.draw do
   get 'pages/contact'
   get 'pages/tutor_list'
   get 'pages/bootstrap_test'
+  post 'tutor_booking', to: 'users#book_tutor', as: 'tutor_booking'
   root "pages#home"
 end

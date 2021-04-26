@@ -27,15 +27,38 @@ class UsersController < ApplicationController
 
 	#helper method to display tutor's subjects on their profile pages
 	def subj
-		@tutor_subjects = TutorSubject.all
-		subjStr = String.new("")
+		@tutor_subjects = TutorSubject.where(tutorID: @user.id).select(:subjectID)
+		@tutor_subjects = Subject.where(subjectID: @tutor_subjects)
+		subs = []
 		@tutor_subjects.each do |tutor_subject|
-			if tutor_subject.tutorID == @user.id
-				subjStr = subjStr + tutor_subject.subject.capitalize! + " "
-			end
+			subs.append([tutor_subject.name.capitalize!, tutor_subject.subjectID])
 		end
-	return subjStr
+	return subs
 	end
+
+	def book_tutor
+		tutorID = params[:tutorID]
+		clientID = params[:clientID]
+		subjectID = params[:subjectID]
+
+		maxkey = TutorClientRelationship.maximum("relID")
+		if maxkey.nil?
+			maxkey = 0
+		end
+		maxkey = maxkey + 1
+
+		relationship = TutorClientRelationship.new(tutorID: tutorID, clientID: clientID, subjectID: subjectID, relID: maxkey)
+
+		if relationship.valid?
+			relationship.save!
+			access = Access.new(relID: maxkey)
+			access.save!
+			redirect_to user_path(tutorID), notice: 'Booking saved successfully'
+		else
+			format.html { redirect_to user_path(tutorID), alert: 'Booking failed to complete' }
+		end
+	end
+
 	helper_method :subj
 
 	private
@@ -46,6 +69,12 @@ class UsersController < ApplicationController
 			:surname,
 			:phone,
 			:dob,
+		)
+
+		params.except(:booking).permit(
+		:tutorID,
+		:clientID,
+		:subjectID
 		)
 	end
 
