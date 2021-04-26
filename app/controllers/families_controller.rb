@@ -21,7 +21,8 @@ class FamiliesController < ApplicationController
 
   # POST /families or /families.json
   def create
-    @family = Family.new
+    @user = User.find(params[:user_id])
+    @family = @user.parents.build
 
     respond_to do |format|
       if @family.save

@@ -6,17 +6,20 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' % > %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-<!-- get_user_logged_in is a method that has been defined in the application controller. It returns the user that is currently signed in and it shows up on each page -->
-    <%= get_user_logged_in %>
+    
+    <header>
+      <%= render 'shared/header' %>
+    </header>
 
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
 
   </body>
 </html>

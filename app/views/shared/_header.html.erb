@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Woo</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="<%= root_path %>">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<%= pages_about_us_path %>">About Us</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<%= pages_contact_path %>">Contact Us</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<%= users_path %>">All Users</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="<%= pages_tutor_list_path %>">All Tutors</a>
+            </li>
+            
+            <% if user_signed_in? %>
+                <li class="nav-item">
+                    <a class="nav-link" href="<%= user_path(current_user) %>">Profile</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="<%= destroy_user_session_path %>">Logout</a>
+                </li>
+            <% else %>
+                <li class="nav-item">
+                    <a class="nav-link" href="<%= new_user_session_path %>">Login</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="<%= new_user_registration_path %>">Sign Up</a>
+                </li>
+            <% end %>
+    </ul>
+  </div>
+</nav>
+
+
+<div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <!-- get_user_logged_in is a method that has been defined in the application controller. It returns the user that is currently signed in and it shows up on each page -->
+    <%= get_user_logged_in %>
+</div>

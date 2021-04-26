@@ -1,13 +1,30 @@
 <h1>List of all Tutors</h1>
 
-<% @users = User.all %>
-<% @users.each do |u| %>
-  <% if u.role == 'tutor' %>
-      <tr>
-        <td><%= u.forename %></td>
-        <td><%= u.surname %></td>
-        <td>placeholder for a button</td>
-      </tr>
-      <br>
-  <% end %>
+<%= form_with url: "", method: :get do |form| %>
+  <%= form.label :query, "Filter:" %>
+  <%= form.collection_select :query, TutorSubject.select(:subject).distinct, :subject, :subject, prompt: "Show All" %>
+  <%= form.submit "Search"%>
+<% end %>
+
+<%
+  @users = nil
+  if params[:query].blank?
+    @users = User.where(role: 'tutor')
+  else
+    @tutor_ids = TutorSubject.where(subject: params[:query]).select(:tutorID)
+    @users = User.where(role: 'tutor', id: @tutor_ids)
+  end
+%>
+
+<% @users.each do |tutor| %>
+  <div class="card">
+    <p><%= tutor.forename %> <%= tutor.surname %></p>
+    <%TutorSubject.where(tutorID: tutor.id).each do |subject|%>
+        <div class="card">
+          <p><%= subject.subject %></p>
+        </div>
+    <%end%>
+
+    <%= button_to "See Tutor Profile", user_path(tutor.id), method: :get %>
+  </div>
 <% end %>

@@ -40,3 +40,22 @@ ACCESSONE = Access.where(id: 1).first
 ACCESSONE.delete if ACCESSONE
 
 accessone = Access.create([relID: 1, videolink: "www.youtube.com"])
+
+subjects = [
+		{ subjectID: 0, tutorID: 3, subject: 'computer science'},
+		{ subjectID: 1, tutorID: 6, subject: 'english'},
+		{ subjectID: 2, tutorID: 3, subject: 'mathematics'}
+]
+
+subjects.each do |subject|
+	sub = TutorSubject.where(
+      subjectID: subject[:subjectID],
+			).first_or_initialize
+
+	sub.update!(
+      tutorID: subject[:tutorID],
+      subject: subject[:subject]
+			)
+	sub.save
+end
+
