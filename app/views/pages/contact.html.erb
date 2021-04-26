@@ -1,2 +1,32 @@
-<h1>Don't Ping Me</h1>
-<p></p>
+<h1>Contact Us</h1>
+<p>Complete the following form to get in touch with us.</p>
+
+<%= form_tag request_contact_path, method: 'post' do %>
+  <div>
+    <%= label_tag :name, 'Name:' %>
+    <br />
+    <%= text_field_tag :name, '', title: 'Enter your name', size: 50 %>
+  </div>
+  <div>
+    <br />
+    <%= label_tag :email, 'Email:' %>
+    <br />
+    <%= email_field_tag :email, '', title: 'Enter your email address' %>
+  </div>
+  <div>
+    <br />
+    <%= label_tag :telephone, 'Telephone:' %>
+    <br />
+    <%= telephone_field_tag :telephone, '', title: 'Enter your telephone number' %>
+  </div>
+  <div>
+    <br />
+    <%= label_tag :message, 'Message:' %>
+    <br />
+    <%= text_field_tag :message, '', title: 'What do you want to say?', size: 100 %>
+  </div>
+  <div>
+    <br />
+    <%= submit_tag 'Contact Us' %>
+  </div>
+<% end %>
