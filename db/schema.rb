@@ -36,15 +36,16 @@ ActiveRecord::Schema.define(version: 2021_04_26_103813) do
   create_table "tutor_client_relationships", force: :cascade do |t|
     t.integer "tutorID"
     t.integer "clientID"
+    t.integer "subjectID"
     t.integer "relID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tutor_subjects", force: :cascade do |t|
+    t.integer "relID"
     t.integer "subjectID"
     t.integer "tutorID"
-    t.string "subject"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
