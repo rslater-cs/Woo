@@ -4,40 +4,40 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="<%= root_path %>">Home</a>
+                <%= link_to "Home", root_path, class: "nav-link" %>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<%= pages_about_us_path %>">About Us</a>
+                <%= link_to "About Us", pages_about_us_path, class: "nav-link" %>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<%= pages_contact_path %>">Contact Us</a>
+                <%= link_to "Contact Us", pages_contact_path, class: "nav-link" %>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<%= users_path %>">All Users</a>
+                <%= link_to "All Users", users_path, class: "nav-link" %>
             </li>
         
             <li class="nav-item">
-                <a class="nav-link" href="<%= pages_tutor_list_path %>">All Tutors</a>
+                <%= link_to "All Tutors", pages_tutor_list_path, class: "nav-link" %>
             </li>
             
             <% if user_signed_in? %>
                 <li class="nav-item">
-                    <a class="nav-link" href="<%= user_path(current_user) %>">Profile</a>
+                    <%= link_to "Profile", user_path(current_user), class: "nav-link" %>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="<%= destroy_user_session_path %>">Logout</a>
+                    <%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "nav-link" %>
                 </li>
             <% else %>
                 <li class="nav-item">
-                    <a class="nav-link" href="<%= new_user_session_path %>">Login</a>
+                    <%= link_to "Login", new_user_session_path, class: "nav-link" %>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="<%= new_user_registration_path %>">Sign Up</a>
+                    <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
                 </li>
             <% end %>
     </ul>
