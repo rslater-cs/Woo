@@ -1,25 +1,77 @@
 <div class="container-fluid mt-5 mb-5">
   <div class="jumbotron jumbotron-fluid">
     <div class="container text-center">
-      <h1>Woo!</h1>
-      <p class="mx-auto w-75 font-size-20">A learning platform for students to continue their education and achieve their best, and a place where tutors can offer their services and connect with others no matter where they are.</p>
+      <%= image_tag "woo2.jpeg", :class => "about-logo-size mb-4" %>
+      <p class="mx-auto w-75 lead">A learning platform for students to continue their education and achieve their best, and a place where tutors can offer their services and connect with others no matter where they are.</p>
     </div>
   </div>
 </div>
-<div class="row border-top border-bottom border-secondary mb-5">
-  <div class="col">
-    <%= image_tag "about1.jpeg", :class => "h-100 w-100 border border-right border-secondary" %>
-  </div>
-  <div class="col text-center my-auto">
-    <h2>Our Mission</h2>
-    <p>We aspire to improve the quality of life for students and tutors both by providing a platform where teaching is made simple, with all the tools in one place.</p>
+<div class="jumbotron jumbotron-fluid mb-5" style="background-image: url(/assets/about1.jpg); background-size: cover; height: 90vh;">
+  <div class="container d-flex h-100">
+    <div class="jumbotron jumbotron-fluid w-50 align-self-center" style="background-color: white;">
+      <h1 class="w-75 mx-auto mt-5">Our Mission</h1>
+      <p class="lead w-75 mx-auto mb-5">We aspire to improve the quality of life for students and tutors both by providing a platform where teaching is made simple, with all the tools in one place.</p>
+    </div>
   </div>
 </div>
-<div class="container-fluid mb-5">
+<div class="container-fluid mb-5 py-5" style="background-color: #6DBC4E;">
   <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1>Our Story</h1>
-      <p class="font-size-20">We are a team of students who have had personal experience with the COVID pandemic interfering with our education. It came at a time where we understood the need for face to face teaching and how important it was to have the necessary support for our studies. Therefore, we decided that a single, online platform where tools such as real time video calls and file sharing would be key in providing a safe, and enjoyable experience for people who may be struggling in times like these.</p>
+    <div class="container text-center">
+      <h1 class="display-2">Our Story</h1>
+      <p class="lead">We are a team of students who have had personal experience with the COVID pandemic interfering with our education. It came at a time where we understood the need for face to face teaching and how important it was to have the necessary support for our studies. Therefore, we decided that a single, online platform where tools such as real time video calls and file sharing would be key in providing a safe, and enjoyable experience for people who may be struggling in times like these.</p>
     </div>
+  </div>
+</div>
+<div class="container">
+  <h1 class="display-2 text-center mb-5">The Team</h1>
+  <div class="row text-center mb-3">
+    <div class="col card mx-3">
+      <%= image_tag "profile.jpg", :class => "card-img-top" %>
+      <div class="card-body">
+        <p class="card-text lead">Abel Csanaki</p>
+      </div>
+    </div>
+    <div class="col card">
+      <%= image_tag "profile.jpg", :class => "card-img-top" %>
+      <div class="card-body">
+        <p class="card-text lead">Ryan Slater</p>
+      </div>
+    </div>
+    <div class="col card mx-3">
+      <%= image_tag "profile.jpg", :class => "card-img-top" %>
+      <div class="card-body">
+        <p class="card-text lead">Isayah Wedderburn</p>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center mb-3">
+    <div class="col card mx-3">
+      <%= image_tag "profile.jpg", :class => "card-img-top" %>
+      <div class="card-body">
+        <p class="card-text lead">Madelaine Donoher-Lambden</p>
+      </div>
+    </div>
+    <div class="col card">
+      <%= image_tag "profile.jpg", :class => "card-img-top" %>
+      <div class="card-body">
+        <p class="card-text lead">Fahad Khalaf</p>
+      </div>
+    </div>
+    <div class="col card mx-3">
+      <%= image_tag "profile.jpg", :class => "card-img-top" %>
+      <div class="card-body">
+        <p class="card-text lead">Felipe D'Abrantes</p>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center mb-5">
+    <div class="col mx-3"></div>
+    <div class="col card">
+      <%= image_tag "profile.jpg", :class => "card-img-top" %>
+      <div class="card-body">
+        <p class="card-text lead">Chris E Ellis</p>
+      </div>
+    </div>
+    <div class="col mx-3"></div>
   </div>
 </div>

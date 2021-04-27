@@ -2,3 +2,12 @@
 
   // Import Bootstrap v5
   @import "~bootstrap/scss/bootstrap";
+
+  a.nav-hover:hover{
+    border-bottom: #6DBC4E solid 2px;
+  }
+
+  .about-logo-size{
+    width: 250px;
+    height: 250px;
+  }
