@@ -1,0 +1,2 @@
+class LeariningCenterController < ApplicationController
+end

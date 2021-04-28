@@ -56,15 +56,15 @@ end
 # 	this_user.save
 # end
 
-RELONE = TutorClientRelationship.where(id: 1).first
-RELONE.delete if RELONE
+#RELONE = TutorClientRelationship.where(id: 1).first
+#RELONE.delete if RELONE
 
-realtionship1 = TutorClientRelationship.create([id: 1, tutorID:1, clientID:2, relID: 1])
+#realtionship1 = TutorClientRelationship.create([id: 1, tutorID:1, clientID:2, relID: 1])
 
-ACCESSONE = Access.where(id: 1).first
-ACCESSONE.delete if ACCESSONE
+#ACCESSONE = Access.where(id: 1).first
+#ACCESSONE.delete if ACCESSONE
 
-accessone = Access.create([relID: 1, videolink: "www.youtube.com"])
+#accessone = Access.create([relID: 1, videolink: "www.youtube.com"])
 
 
 subjects = [
@@ -102,4 +102,3 @@ subject_relationships.each do |subject|
 	)
 	sub.save
 end
-
