@@ -56,6 +56,7 @@ end
 # 	this_user.save
 # end
 
+#This part was and can be used for testing tutor_client_relationships, but it is counterproductive to have it seeded when actually using the app
 #RELONE = TutorClientRelationship.where(id: 1).first
 #RELONE.delete if RELONE
 
