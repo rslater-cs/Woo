@@ -6,12 +6,22 @@
 <% if current_user.role == 'child' %>
 <!-- The following is how the hub looks when there is a student signed in. In that case it is called a Learning Center-->
   <h1><%= current_user.forename%>'s Personal Learning Center</h1>
-  <% TutorClientRelationship.all.each do |tutorclient| %>
-  <% if current_user.id == tutorclient.clientID %>
-    <p><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></p>
-  <% end %>
-<% end %>
-<% end %>
+  <table>
+    <tr>
+      <th>Subject</th>
+      <th>Tutor</th>
+    </tr>
+    <% TutorClientRelationship.all.each do |tutorclient| %>
+    <tr>
+      <% if current_user.id == tutorclient.clientID %>
+        <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
+        <td><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></td>
+      <% end %>
+      <% end %>
+    <% end %>
+    </tr>
+  </table>
+
 
 <% if current_user.role == 'tutor' %>
 <!-- The following is how the hub looks when there is a tutor signed in. In that case it is called a Teaching Center-->
