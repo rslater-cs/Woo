@@ -45,9 +45,15 @@
               <% end %>
 
               <% if current_user.role == 'adult' %>
-                <li class="nav-item">
-                  <%= link_to "Parental Control Page", pages_hub_path, class: "nav-link nav-hover" %>
-                </li>
+                <% if Family.where(parentID: current_user.id).first != nil %>
+                  <li class="nav-item">
+                    <%= link_to "Parental Control Page", pages_hub_path, class: "nav-link nav-hover" %>
+                  </li>
+                <%  else %>
+                  <li class="nav-item">
+                    <%= link_to "Learning Center", pages_hub_path, class: "nav-link nav-hover" %>
+                  </li>
+                <% end %>
               <% end %>
 
 
