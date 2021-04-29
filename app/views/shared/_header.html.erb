@@ -1,3 +1,10 @@
+<div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <!-- get_user_logged_in is a method that has been defined in the application controller. It returns the user that is currently signed in and it shows up on each page -->
+    <%= get_user_logged_in %>
+</div>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/"> <%= image_tag('woo.jpeg', :size => "115x50") %> </a>
 
@@ -24,9 +31,16 @@
             </li>
 
             <% if user_signed_in? %>
+
+              <% if current_user.role == 'tutor' %>
                 <li class="nav-item">
-                    <%= link_to "Learning Center", pages_hub_path, class: "nav-link nav-hover" %>
+                  <%= link_to "Teaching Center", pages_hub_path, class: "nav-link nav-hover" %>
                 </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to "Learning Center", pages_hub_path, class: "nav-link nav-hover" %>
+                </li>
+              <% end %>
 
                 <li class="nav-item">
                     <%= link_to "Profile", user_path(current_user), class: "nav-link nav-hover" %>
@@ -47,11 +61,3 @@
     </ul>
   </div>
 </nav>
-
-
-<div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <!-- get_user_logged_in is a method that has been defined in the application controller. It returns the user that is currently signed in and it shows up on each page -->
-    <%= get_user_logged_in %>
-</div>
