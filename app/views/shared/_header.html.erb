@@ -25,6 +25,10 @@
 
             <% if user_signed_in? %>
                 <li class="nav-item">
+                    <%= link_to "Learning Center", pages_hub_path, class: "nav-link nav-hover" %>
+                </li>
+
+                <li class="nav-item">
                     <%= link_to "Profile", user_path(current_user), class: "nav-link nav-hover" %>
                 </li>
 
