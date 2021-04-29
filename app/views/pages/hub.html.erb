@@ -1,14 +1,23 @@
 <!--  This is the page that shows all of the subjects and tutors the currently logged in user is signed up to
       It is also the point of contact between students and tutors.
-      If a tutor is signed in this page shows him the students that have signed up to him/her-->
+      If a tutor is signed in this page shows him the students that have signed up to him/her -->
+
+
+<% if current_user.role == 'child' %>
+<!-- The following is how the hub looks when there is a student signed in. In that case it is called a Learning Center-->
+  <h1><%= current_user.forename%>'s Personal Learning Center</h1>
+  <% TutorClientRelationship.all.each do |tutorclient| %>
+  <% if current_user.id == tutorclient.clientID %>
+    <p><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></p>
+  <% end %>
+<% end %>
+<% end %>
+
 <% if current_user.role == 'tutor' %>
 <!-- The following is how the hub looks when there is a tutor signed in. In that case it is called a Teaching Center-->
   <h1><%= current_user.forename%>'s Personal Teaching Center</h1>
 <% end %>
-<% if current_user.role == 'child' %>
-<!-- The following is how the hub looks when there is a student signed in. In that case it is called a Learning Center-->
-  <h1><%= current_user.forename%>'s Personal Learning Center</h1>
-<% end %>
+
 <% if current_user.role == 'adult' %>
 <!-- The following is how the hub looks when there is a parent signed in. In that case it is called a Parental Control Page-->
   <h1><%= current_user.forename%>'s Parental Control Page</h1>

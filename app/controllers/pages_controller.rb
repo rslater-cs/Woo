@@ -13,7 +13,7 @@ class PagesController < ApplicationController
     email = params[:email]
     telephone = params[:telephone]
     message = params[:message]
-    
+
     if email.blank?
       flash[:alert] = I18n.t('home.request_contact.no_email')
     else
