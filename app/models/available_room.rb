@@ -1,0 +1,2 @@
+class AvailableRoom < ApplicationRecord
+end

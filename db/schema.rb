@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_26_103813) do
+ActiveRecord::Schema.define(version: 2021_04_30_124724) do
 
   create_table "accesses", force: :cascade do |t|
     t.integer "relID"
     t.string "videolink"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "chat_rooms", force: :cascade do |t|
+    t.string "url"
+    t.boolean "isFree"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "tutorIsFree"
+    t.integer "whichrel"
   end
 
   create_table "families", force: :cascade do |t|
@@ -65,6 +74,14 @@ ActiveRecord::Schema.define(version: 2021_04_26_103813) do
     t.date "dob"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "video_rooms", force: :cascade do |t|
+    t.string "url"
+    t.boolean "isFree"
+    t.boolean "tutorIsFree"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
