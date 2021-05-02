@@ -64,13 +64,20 @@ class UsersController < ApplicationController
 
 		relationship = TutorClientRelationship.new(tutorID: tutorID, clientID: clientID, subjectID: subjectID, relID: maxkey)
 
+		conflicts = TutorClientRelationship.where(subjectID: subjectID, clientID: clientID)
+
+		if conflicts.length > 0
+			redirect_to user_path(tutorID), alert: "Booking failed: You're already booked to this subject"
+			return
+		end
+
 		if relationship.valid?
 			relationship.save!
 			access = Access.new(relID: maxkey)
 			access.save!
 			redirect_to user_path(tutorID), notice: 'Booking saved successfully'
 		else
-			format.html { redirect_to user_path(tutorID), alert: 'Booking failed to complete' }
+			redirect_to user_path(tutorID), alert: 'Booking failed: Invalid arguments'
 		end
 	end
 
