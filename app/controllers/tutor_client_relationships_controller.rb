@@ -1,5 +1,24 @@
 class TutorClientRelationshipsController < ApplicationController
-  before_action :set_tutor_client_relationship, only: %i[ show edit update destroy ]
+  before_action :check_user, :set_tutor_client_relationship, only: %i[ show edit update destroy ]
+
+  def check_user
+    puts 'sdaas'
+    puts (current_user.forename)
+    puts (current_user.id)
+    puts (TutorClientRelationship.find(params[:id]).clientID)
+
+    if current_user.role == 'tutor'
+      if current_user.id != TutorClientRelationship.find(params[:id]).tutorID
+        flash.alert = "Not allowed!"
+        redirect_to root_path
+      end
+    else
+      if current_user.id != TutorClientRelationship.find(params[:id]).clientID
+        flash.alert = "Not allowed!"
+        redirect_to root_path
+      end
+    end
+  end
 
   # GET /tutor_client_relationships or /tutor_client_relationships.json
   def index

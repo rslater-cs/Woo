@@ -20,7 +20,7 @@
       <% if current_user.id == tutorclient.clientID %>
         <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
         <td><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></td>
-        <td> <%= link_to "Connect", tutor_client_relationship_path(tutorclient.id) %> </td>
+        <td> <%= link_to "Go To Hub", tutor_client_relationship_path(tutorclient.id) %> </td>
       <% end %>
       <% end %>
     <% end %>
@@ -46,6 +46,7 @@
       <% if current_user.id == tutorclient.tutorID %>
         <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
         <td><%= User.where(id: tutorclient.clientID).first.forename%> <%= User.where(id: tutorclient.clientID).first.surname%></td>
+        <td> <%= link_to "Go To Hub", tutor_client_relationship_path(tutorclient.id) %> </td>
       <% end %>
       <% end %>
     <% end %>
@@ -94,6 +95,7 @@
                 <% if current_user.id == tutorclient.clientID %>
                   <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
                   <td><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></td>
+                  <td> <%= link_to "Go To Hub", tutor_client_relationship_path(tutorclient.id) %> </td>
                 <% end %>
             <% end %>
         <% end %>
