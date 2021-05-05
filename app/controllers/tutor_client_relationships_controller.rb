@@ -8,6 +8,7 @@ class TutorClientRelationshipsController < ApplicationController
 
   # GET /tutor_client_relationships/1 or /tutor_client_relationships/1.json
   def show
+    @tutor_client_relationship = TutorClientRelationship.find(params[:id])
   end
 
   # GET /tutor_client_relationships/new
@@ -64,6 +65,6 @@ class TutorClientRelationshipsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tutor_client_relationship_params
-      params.require(:tutor_client_relationship).permit(:relID, :tutorID, :clientID)
+      params.require(:tutor_client_relationship).permit(:relID, :tutorID, :clientID, files: [])
     end
 end

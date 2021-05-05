@@ -1,0 +1,11 @@
+<%= form_with(model: @tutor_client_relationship) do |form| %>
+
+  <div>
+    <%= form.file_field :files, multiple: true %>
+  </div>
+  
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

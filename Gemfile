@@ -34,7 +34,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'rack-mini-profiler', '~> 2.0'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
+gem 'aws-sdk-s3', require: false
+gem 'active_storage_validations'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

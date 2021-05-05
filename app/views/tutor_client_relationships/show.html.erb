@@ -1,0 +1,19 @@
+<p> hello </p>
+
+<%= @tutor_client_relationship.tutorID %>
+<br>
+<%= @tutor_client_relationship.files.length %>
+<br>
+
+<ul>
+    <% @tutor_client_relationship.files.each do |file| %>
+        <li>
+            <%= file.filename%>
+            <%= link_to 'View file', file %>
+            <%= link_to 'Download file', file, download: '' %>
+        </li>
+    <% end %>
+</ul>
+
+
+<%= link_to 'EDIT HAPPY?', edit_tutor_client_relationship_path %>

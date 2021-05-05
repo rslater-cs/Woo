@@ -20,6 +20,7 @@
       <% if current_user.id == tutorclient.clientID %>
         <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
         <td><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></td>
+        <td> <%= link_to "Connect", tutor_client_relationship_path(tutorclient.id) %> </td>
       <% end %>
       <% end %>
     <% end %>
@@ -100,3 +101,6 @@
         </table>
         <% end %>
 <% end %>
+
+
+<h1>Hi</h1>
