@@ -42,6 +42,37 @@ class TutorClientRelationshipsController < ApplicationController
 
   # GET /tutor_client_relationships/1 or /tutor_client_relationships/1.json
   def show
+    # require 'uri'
+    # require 'net/http'
+    # require 'openssl'
+
+    # url = URI("https://api.daily.co/v1/")
+
+    # http = Net::HTTP.new(url.host, url.port)
+    # http.use_ssl = true
+
+    # request = Net::HTTP::Get.new(url)
+    # request["Authorization"] = 'Bearer a911ee28582995cc96b554b317c020b44dff7d2ca0a39fce7cad9bad25912760'
+
+    # response = http.request(request)
+
+    require 'uri'
+    require 'net/http'
+    require 'openssl'
+
+    url = URI("https://api.daily.co/v1/rooms")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+
+    request = Net::HTTP::Post.new(url)
+    request["Content-Type"] = 'application/json'
+    request["Authorization"] = 'Bearer a911ee28582995cc96b554b317c020b44dff7d2ca0a39fce7cad9bad25912760'
+    request.body = "{\"properties\":{\"enable_network_ui\":false,\"enable_chat\":true},\"name\":\"chris\"}"
+
+    response = http.request(request)
+    puts response.read_body
+
     @tutor_client_relationship = TutorClientRelationship.find(params[:id])
   end
 
