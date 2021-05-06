@@ -22,6 +22,7 @@
             <li class="nav-item">
                 <%= link_to "All Tutors", pages_tutor_list_path, class: "nav-link nav-hover" %>
             </li>
+            
 
             <% if user_signed_in? %>
 
@@ -69,8 +70,13 @@
                     <%= link_to "Sign Up", new_user_registration_path, class: "nav-link nav-hover" %>
                 </li>
             <% end %>
-            <!-- get_user_logged_in is a method that has been defined in the application controller. It returns the user that is currently signed in and it shows up on each page -->
-            <%= get_user_logged_in %>
+
+            <li class="nav-item">
+                <p class= "font-weight-bolder nav-link nav-hover">
+                  <!-- get_user_logged_in is a method that has been defined in the application controller. It returns the user that is currently signed in and it shows up on each page -->
+                  <%= get_user_logged_in  %>
+                </p>
+            </li>
     </ul>
   </div>
 </nav>
