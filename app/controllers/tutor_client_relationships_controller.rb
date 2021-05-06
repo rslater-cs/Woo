@@ -2,18 +2,33 @@ class TutorClientRelationshipsController < ApplicationController
   before_action :check_user, :set_tutor_client_relationship, only: %i[ show edit update destroy ]
 
   def check_user
-    puts 'sdaas'
-    puts (current_user.forename)
-    puts (current_user.id)
-    puts (TutorClientRelationship.find(params[:id]).clientID)
+
+    rel = TutorClientRelationship.find(params[:id])
 
     if current_user.role == 'tutor'
-      if current_user.id != TutorClientRelationship.find(params[:id]).tutorID
+      if current_user.id == rel.clientID || current_user.id == rel.tutorID
+        puts('allowed connection')
+      elsif Family.where(parentID: current_user.id, childID: rel.clientID).present?
+        puts('allowed connection')
+      else
         flash.alert = "Not allowed!"
         redirect_to root_path
       end
-    else
-      if current_user.id != TutorClientRelationship.find(params[:id]).clientID
+
+    elsif current_user.role == 'adult'
+      if current_user.id == rel.clientID
+        puts('allowed connection')
+      elsif Family.where(parentID: current_user.id, childID: rel.clientID).present?
+        puts('allowed connection')
+      else
+        flash.alert = "Not allowed!"
+        redirect_to root_path
+      end
+
+    elsif current_user.role == 'child'
+      if current_user.id == rel.clientID
+        puts('allowed connection')
+      else
         flash.alert = "Not allowed!"
         redirect_to root_path
       end

@@ -1,10 +1,15 @@
 <h1> Your Hub Area </h1>
 
-<p1> Your current tutor is: </p1>
+<p1> Current Tutor: </p1>
 <%= User.where(id: @tutor_client_relationship.tutorID).first.forename %>
 <br>
+<p1> Current Client: </p1>
+<%= User.where(id: @tutor_client_relationship.clientID).first.forename %>
+<br>
+<br>
+<br>
 
-<h3> Your File Sharing: </h3>
+<h4> Your File Sharing: </h4>
 <ul>
     <% @tutor_client_relationship.files.each do |file| %>
         <li>
