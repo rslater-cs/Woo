@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 		@user.role = 'child'
 		if @user.save
 			Family.new(parentID: current_user.id, childID: @user.id).save
-			redirect_to users_url, notice: "User successfully created"
+			redirect_to user_path(@user), notice: "User successfully created"
 		else
 			render :new
 		end
@@ -75,7 +75,7 @@ class UsersController < ApplicationController
 			relationship.save!
 			access = Access.new(relID: maxkey)
 			access.save!
-			redirect_to tutor_client_relationship_path(relationship), notice: 'Booking saved successfully'
+			redirect_to pages_hub_path, notice: 'Booking saved successfully'
 		else
 			redirect_to user_path(tutorID), alert: 'Booking failed: Invalid arguments'
 		end

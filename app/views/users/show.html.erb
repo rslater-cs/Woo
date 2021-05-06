@@ -7,6 +7,9 @@
 <p><strong><%= @user.full_name %></strong></p>
 <p><strong>Role:</strong> <%= @user.role %></p>
 
+<p><strong>Bio:</strong> <%= @user.bio %></p>
+
+
 
 <!--Code gets a 2d array of subject names and their ids and displays a button for each one.
 The button then passes the current user id, tutor id and subject id to a method in the user controller
@@ -14,6 +17,8 @@ which creates a relationship of the tutor and client along with the chosen subje
 Finally a access entry is created which holds the relationship id and a nil value for the room link
 -->
 <% if @user.role == 'tutor' %>
+	<p> To get in contact with a tutor, please book one of the subjects they offer below. </p>
+	<p> Please note that you can only book one tutor for each subject <p>
 	<p><strong>Subjects:</strong><p>
 	<%
     subjects = subj
@@ -21,7 +26,7 @@ Finally a access entry is created which holds the relationship id and a nil valu
       <%=button_to subject[0], tutor_booking_path(tutorID: @user.id, clientID: current_user.id, subjectID: subject[1]), method: :post%>
     <%}
   end %>
-  
+
 <% if current_user.id == @user.id %>
 	<p><strong><u>Private Info</u></strong></p>
 	<p><strong>Phone:</strong> <%= @user.phone %></p>

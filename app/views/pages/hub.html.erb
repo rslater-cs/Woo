@@ -12,8 +12,8 @@
   <%else%>
   <table>
     <tr>
-      <th>Subject</th>
-      <th>Tutor</th>
+      <th> Subject </th>
+      <th> Tutor </th>
     </tr>
     <% TutorClientRelationship.all.each do |tutorclient| %>
     <tr>
@@ -38,8 +38,8 @@
   <%else%>
   <table>
     <tr>
-      <th>Subject</th>
-      <th>Student</th>
+      <th> Subject </th>
+      <th> Student </th>
     </tr>
     <% TutorClientRelationship.all.each do |tutorclient| %>
     <tr>
@@ -55,51 +55,56 @@
 <% end %>
 
 <% if current_user.role == 'adult'%>
+  <!-- The following is how the hub looks when there is an adult non-parent signed in. In that case it is a standard Learning Center-->
+  <h1><%= current_user.forename%>'s Personal Learning Center</h1>
+  <% check = TutorClientRelationship.all %>
+  <% if check.first == nil %>
+    <p> You haven't signed up to any tutors yet!</p>
+  <%else%>
+    <table>
+      <tr>
+        <th> Subject </th>
+        <th> Tutor </th>
+      </tr>
+      <% TutorClientRelationship.all.each do |tutorclient| %>
+        <tr>
+          <% if current_user.id == tutorclient.clientID %>
+            <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
+            <td><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></td>
+            <td> <%= link_to "Go To Hub", tutor_client_relationship_path(tutorclient.id) %> </td>
+          <% end %>
+      <% end %>
+    <% end %>
+    </tr>
+  </table>  
+  <br>
+  <br>
+  <br>
   <% if Family.where(parentID: current_user.id).first != nil %>
     <!-- The following is how the hub looks when there is a parent signed in. In that case it is called a Parental Control Page-->
-    <h1><%= current_user.forename%>'s Parental Control Page</h1>
+    <h1><%= current_user.forename%>'s Parental Access</h1>
     <% check = TutorClientRelationship.all %>
-      <% if check.first == nil %>
-        <p> Your child has no tutors at the moment!</p>
-      <%else%>
-        <table>
-          <tr>
-            <th>Child's Subject</th>
-            <th>Child's Tutor</th>
-          </tr>
-          <% TutorClientRelationship.all.each do |tutorclient| %>
-            <% Family.where(parentID: current_user.id).all.each do |family| %>
-              <tr>
-                <% if family.childID == tutorclient.clientID %>
-                  <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
-                  <td><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></td>
-                <% end %>
-            <% end %>
-          <% end %>
+    <% if check.first == nil %>
+      <p> Your child has no tutors at the moment!</p>
+    <%else%>
+      <table>
+        <tr>
+          <th> Child's Name </th>
+          <th> Subject </th>
+          <th> Tutor </th>
         </tr>
-      <%end%>
-    <% else %>
-    <!-- The following is how the hub looks when there is an adult non-parent signed in. In that case it is a standard Learning Center-->
-      <h1><%= current_user.forename%>'s Personal Learning Center</h1>
-        <% check = TutorClientRelationship.all %>
-        <% if check.first == nil %>
-          <p> You haven't signed up to any tutors yet!</p>
-        <%else%>
-          <table>
+        <% TutorClientRelationship.all.each do |tutorclient| %>
+          <% Family.where(parentID: current_user.id).all.each do |family| %>
             <tr>
-              <th>Subject</th>
-              <th>Tutor</th>
+              <% if family.childID == tutorclient.clientID %>
+                <td><%= User.where(id: family.childID).first.forename %> </td>
+                <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
+                <td><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></td>
+              <% end %>
+              <% end %>
+              <% end %>
             </tr>
-            <% TutorClientRelationship.all.each do |tutorclient| %>
-              <tr>
-                <% if current_user.id == tutorclient.clientID %>
-                  <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
-                  <td><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></td>
-                  <td> <%= link_to "Go To Hub", tutor_client_relationship_path(tutorclient.id) %> </td>
-                <% end %>
-            <% end %>
-        <% end %>
-        </tr>
-        </table>
-        <% end %>
+    <%end%>
+  </table>
+  <% end %>
 <% end %>
