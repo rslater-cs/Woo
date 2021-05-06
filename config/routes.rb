@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :tutor_subjects
   resources :families
   resources :accesses
-  resources :tutor_client_relationships
+  resources :tutor_client_relationships do
+    post 'comments', to: 'comments#create'
+  end
 
   devise_for :users, :path => 'u'
   resources :users, only: [:index, :show, :new, :edit, :update, :create]

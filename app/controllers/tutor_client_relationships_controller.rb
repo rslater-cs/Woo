@@ -43,6 +43,8 @@ class TutorClientRelationshipsController < ApplicationController
   # GET /tutor_client_relationships/1 or /tutor_client_relationships/1.json
   def show
     @tutor_client_relationship = TutorClientRelationship.find(params[:id])
+    @comment = Comment.new
+    @comments = @tutor_client_relationship.comments.order("created_at DESC")
   end
 
   # GET /tutor_client_relationships/new
