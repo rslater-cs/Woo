@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  #THIS NEEDS TO BE ABOVE THE RESOURCES!!!
+  get 'users/legal'
   resources :subjects
   resources :tutor_subjects
   resources :families

@@ -15,7 +15,7 @@ The button then passes the current user id, tutor id and subject id to a method 
 which creates a relationship of the tutor and client along with the chosen subject.
 Finally a access entry is created which holds the relationship id and a nil value for the room link
 -->
-<% if @user.role == 'tutor' %>
+<% if @user.role == 'tutor' && current_user.id != @user.id %>
 	<p> To get in contact with a tutor, please book one of the subjects they offer below. </p>
 	<p> Please note that you can only book one tutor for each subject <p>
 	<p><strong>Subjects:</strong><p>
@@ -31,5 +31,7 @@ Finally a access entry is created which holds the relationship id and a nil valu
 	<p><strong>Phone:</strong> <%= @user.phone %></p>
 	<p><strong>D.O.B:</strong> <%= @user.dob %></p>
 	<%= link_to 'Edit My Profile', edit_user_path(current_user) %>
-	<%= link_to 'Create Child Account', new_user_path %>
+	<% if current_user.role == 'adult' || current_user.role == 'tutor' %>
+		<%= link_to 'Create Child Account', users_legal_path %>
+	<% end %>
 <% end %>

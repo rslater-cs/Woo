@@ -32,6 +32,9 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def legal
+	end
+
 	def create
 		@user = User.new(new_user_params)
 		@user.role = 'child'
@@ -118,7 +121,8 @@ class UsersController < ApplicationController
 			:forename,
 			:surname,
 			:phone,
-			:dob
+			:dob,
+			:bio
 		)
 	end
 
