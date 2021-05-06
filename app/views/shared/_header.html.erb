@@ -1,10 +1,3 @@
-<div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <!-- get_user_logged_in is a method that has been defined in the application controller. It returns the user that is currently signed in and it shows up on each page -->
-    <%= get_user_logged_in %>
-</div>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/"> <%= image_tag('woo.jpg', :size => "115x50") %> </a>
 
@@ -76,6 +69,13 @@
                     <%= link_to "Sign Up", new_user_registration_path, class: "nav-link nav-hover" %>
                 </li>
             <% end %>
+            <!-- get_user_logged_in is a method that has been defined in the application controller. It returns the user that is currently signed in and it shows up on each page -->
+            <%= get_user_logged_in %>
     </ul>
   </div>
 </nav>
+
+<div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+</div>

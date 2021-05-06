@@ -22,6 +22,7 @@
 
 <%= link_to 'Add new file', edit_tutor_client_relationship_path %>
 
+
 <br>
 <h4> Sessions </h4>
 
@@ -39,4 +40,17 @@
         <p>No active sessions!</p>
     <% end %>
 
+<% end %>
+
+<br>
+<br>
+
+<%= form_with model: [@tutor_client_relationship, @comment], local: true do |f| %>
+	<%= f.text_field :body %>
+	<%= f.submit "comment" %>
+<% end %>
+
+<% @comments.each do |comment| %>
+	[<%= comment.created_at.strftime("%I:%M %p") %>] <%= comment.user.forename %> <%= comment.user.surname %>: <%= comment.body %>
+	<br />
 <% end %>
