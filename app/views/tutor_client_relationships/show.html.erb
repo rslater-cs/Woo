@@ -1,10 +1,10 @@
-<p> hello </p>
+<h1> Your Hub Area </h1>
 
-<%= @tutor_client_relationship.tutorID %>
-<br>
-<%= @tutor_client_relationship.files.length %>
+<p1> Your current tutor is: </p1>
+<%= User.where(id: @tutor_client_relationship.tutorID).first.forename %>
 <br>
 
+<h3> Your File Sharing: </h3>
 <ul>
     <% @tutor_client_relationship.files.each do |file| %>
         <li>
@@ -15,5 +15,4 @@
     <% end %>
 </ul>
 
-
-<%= link_to 'EDIT HAPPY?', edit_tutor_client_relationship_path %>
+<%= link_to 'Add new file', edit_tutor_client_relationship_path %>

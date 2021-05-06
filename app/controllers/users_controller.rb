@@ -75,7 +75,7 @@ class UsersController < ApplicationController
 			relationship.save!
 			access = Access.new(relID: maxkey)
 			access.save!
-			redirect_to user_path(tutorID), notice: 'Booking saved successfully'
+			redirect_to tutor_client_relationship_path(relationship), notice: 'Booking saved successfully'
 		else
 			redirect_to user_path(tutorID), alert: 'Booking failed: Invalid arguments'
 		end

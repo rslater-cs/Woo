@@ -21,11 +21,7 @@ Finally a access entry is created which holds the relationship id and a nil valu
       <%=button_to subject[0], tutor_booking_path(tutorID: @user.id, clientID: current_user.id, subjectID: subject[1]), method: :post%>
     <%}
   end %>
-
-<% if @user.role == 'tutor' %>
-	<p><u>Contact tutor</u> &nbsp; (link this to contact hub) </p>
-<% end %>
-
+  
 <% if current_user.id == @user.id %>
 	<p><strong><u>Private Info</u></strong></p>
 	<p><strong>Phone:</strong> <%= @user.phone %></p>
