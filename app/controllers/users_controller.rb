@@ -20,8 +20,11 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		puts '*******'
+		puts params
+		puts update_user_params
 		respond_to do |format|
-			if current_user.update(user_params)
+			if current_user.update(update_user_params)
 				format.html { redirect_to current_user, notice: 'You successfully updated your profile' }
 			else
 				format.html { render :edit }
@@ -90,7 +93,7 @@ class UsersController < ApplicationController
 			:forename,
 			:surname,
 			:phone,
-			:dob,
+			:dob
 		)
 
 		params.except(:booking).permit(
@@ -107,6 +110,15 @@ class UsersController < ApplicationController
 			:email,
 			:password,
 			:password_confirmation,
+		)
+	end
+
+	def update_user_params
+		params.require(:user).permit(
+			:forename,
+			:surname,
+			:phone,
+			:dob
 		)
 	end
 
