@@ -24,5 +24,7 @@ Rails.application.routes.draw do
   get 'pages/tutor_list'
   get 'pages/bootstrap_test'
   post 'tutor_booking', to: 'users#book_tutor', as: 'tutor_booking'
+  get 'room', to: 'tutor_client_relationships#room'
+  get 'delete_room', to: 'tutor_client_relationships#delete_room'
   root "pages#home"
 end

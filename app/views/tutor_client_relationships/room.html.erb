@@ -1,0 +1,12 @@
+<script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
+<script>
+  callFrame = window.DailyIframe.createFrame({
+    showLeaveButton: true,
+    iframeStyle: {
+      position: 'fixed',
+      width: '80%',
+     height: '80%'
+    }
+  });
+  callFrame.join({ url: "<%= @room_link %>"})
+</script>
