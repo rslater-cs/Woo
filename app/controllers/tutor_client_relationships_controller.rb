@@ -38,6 +38,7 @@ class TutorClientRelationshipsController < ApplicationController
   # GET /tutor_client_relationships or /tutor_client_relationships.json
   def index
     @tutor_client_relationships = TutorClientRelationship.all
+    redirect_to pages_hub_path
   end
 
   # GET /tutor_client_relationships/1 or /tutor_client_relationships/1.json
