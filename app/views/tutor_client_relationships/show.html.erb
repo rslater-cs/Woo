@@ -1,10 +1,11 @@
 <h1> Your Hub Area </h1>
 
 <p1> Current Tutor: </p1>
-<%= User.where(id: @tutor_client_relationship.tutorID).first.forename %>
+<%= User.where(id: @tutor_client_relationship.tutorID).first.full_name %>
 <br>
 <p1> Current Client: </p1>
-<%= User.where(id: @tutor_client_relationship.clientID).first.forename %>
+<%= User.where(id: @tutor_client_relationship.clientID).first.full_name %>
+
 <br>
 <br>
 <br>
@@ -24,6 +25,9 @@
 
 
 <br>
+<br>
+<br>
+
 <h4> Sessions </h4>
 
 <% if @client.check_room(String(@tutor_client_relationship.id)).code == '200' %>

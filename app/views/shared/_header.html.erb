@@ -59,7 +59,7 @@
                     <%= link_to "Logout", destroy_user_session_path, class: "nav-link nav-hover" %>
                 </li>
                 <li class="nav-item">
-                    <%= link_to "Video Call", pages_apiconnecting_path, class: "nav-link nav-hover" %>
+                    <%= link_to "Public Rooms", pages_apiconnecting_path, class: "nav-link nav-hover" %>
                 </li>
             <% else %>
                 <li class="nav-item">
@@ -81,7 +81,13 @@
   </div>
 </nav>
 
-<div>
+<!--<div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-</div>
+</div> -->
+
+<% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>">
+            <%= value %>
+      </div>
+<% end %>
