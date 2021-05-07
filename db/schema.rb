@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_170207) do
+ActiveRecord::Schema.define(version: 2021_05_06_163351) do
 
   create_table "accesses", force: :cascade do |t|
     t.integer "relID"
@@ -60,12 +60,6 @@ ActiveRecord::Schema.define(version: 2021_05_06_170207) do
   create_table "families", force: :cascade do |t|
     t.integer "parentID"
     t.integer "childID"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "rooms", force: :cascade do |t|
-    t.integer "relID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

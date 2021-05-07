@@ -1,0 +1,93 @@
+<!--  This is the page that shows all of the subjects and tutors the currently logged in user is signed up to
+      It is also the point of contact between students and tutors.
+      If a tutor is signed in this page shows him the students that have signed up to him/her -->
+
+
+<!-- The following is how the hub looks when there is a student signed in. In that case it is called a Learning Center-->
+<h1>Personal Learning Center</h1>
+<p>Access your personal tutor's hubs.</p>
+
+<% if @tutor_relationships.first == nil %>
+    <p> You haven't signed up to any tutors yet!</p>
+<%else%>
+    <table>
+        <tr>
+            <th> Subject </th>
+            <th> Tutor </th>
+        </tr>
+        <% @tutor_relationships.all.each do |tutorclient| %>
+            <tr>
+                <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
+                <td><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></td>
+                <td> <%= link_to "Go To Hub", tutor_client_relationship_path(tutorclient.id) %> </td>
+
+                <% if current_user.role == 'tutor' || current_user.role == 'adult'%>
+                    <td><%= link_to "Delete",tutor_client_relationship_path(tutorclient.id), method: :delete %></td>
+                <% end %>
+            </tr>
+        <% end %>
+    </table>
+<% end %>
+
+<br>
+<br>
+<br>
+
+<!-- The following is how the hub looks when there is a tutor signed in. In that case it is called a Teaching Center-->
+<% if current_user.role == 'tutor' %>
+    <h1>Teaching Center</h1>
+    <p>Access your student's hubs.</p>
+
+    <% if @client_relationships.first == nil %>
+        <p> You don't have any students yet!</p>
+    <%else%>
+        <table>
+            <tr>
+                <th> Subject </th>
+                <th> Student </th>
+            </tr>
+            <% @client_relationships.all.each do |tutorclient| %>
+                <tr>
+                    <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
+                    <td><%= User.where(id: tutorclient.clientID).first.forename%> <%= User.where(id: tutorclient.clientID).first.surname%></td>
+                    <td> <%= link_to "Go To Hub", tutor_client_relationship_path(tutorclient.id) %> </td>
+                    <td><%= link_to "Delete",tutor_client_relationship_path(tutorclient.id), method: :delete %></td>
+                </tr>
+            <% end %>
+        </table>
+    <% end %>
+<% end %>
+        
+    
+<br>
+<br>
+<br>
+
+<!-- The following is how the hub looks when there is a parent signed in. In that case it is called a Parental Control Page-->
+<% if Family.where(parentID: current_user.id).first != nil %>
+
+    <h1>Parental Access</h1>
+    <p>Access your children's personal hubs.</p>
+
+    <% if @children_tutor_relationships.first == nil %>
+        <p> Your children have no tutors yet!</p>
+    <%else%>
+        <table>
+            <tr>
+                <th> Child's Name </th>
+                <th> Subject </th>
+                <th> Tutor </th>
+            </tr>
+            <% @children_tutor_relationships.all.each do |tutorclient| %>
+                <tr>
+                    <td><%= User.where(id: tutorclient.clientID).first.forename %> </td>
+                    <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
+                    <td><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></td>
+                    <td> <%= link_to "Go To Hub", tutor_client_relationship_path(tutorclient.id) %> </td>
+                    <td><%= link_to "Delete",tutor_client_relationship_path(tutorclient.id), method: :delete %></td>
+                </tr>
+            <% end %>
+        </table>       
+    <%end%>
+    
+<% end %>
