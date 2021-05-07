@@ -111,6 +111,7 @@ class UsersController < ApplicationController
 			:forename,
 			:surname,
 			:email,
+			:dob,
 			:password,
 			:password_confirmation,
 		)

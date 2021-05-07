@@ -16,7 +16,12 @@
     </div>
 
     <div class="field">
-      <%= f.label :password %>
+      <%= f.label :dob, "Date of Birth" %><br />
+      <%= f.date_field :dob, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, "Password (6 or more characters)" %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />

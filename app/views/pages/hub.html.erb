@@ -5,7 +5,8 @@
 
 <% if current_user.role == 'child' %>
 <!-- The following is how the hub looks when there is a student signed in. In that case it is called a Learning Center-->
-  <h1><%= current_user.forename%>'s Personal Learning Center</h1>
+  <h1>Personal Learning Center</h1>
+  <p>Access your personal tutor's hubs</p>
   <% check = TutorClientRelationship.all %>
   <% if check.first == nil %>
     <p> You haven't signed up to any tutors yet!</p>
@@ -47,7 +48,7 @@
             <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
             <td><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></td>
             <td> <%= link_to "Go To Hub", tutor_client_relationship_path(tutorclient.id) %> </td>
-            <td><%= link_to "Delete relationship",tutor_client_relationship_path(tutorclient.id), method: :delete %></td>
+            <td><%= link_to "Delete",tutor_client_relationship_path(tutorclient.id), method: :delete %></td>
           <% end %>
       <% end %>
     <% end %>
@@ -73,6 +74,7 @@
         <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
         <td><%= User.where(id: tutorclient.clientID).first.forename%> <%= User.where(id: tutorclient.clientID).first.surname%></td>
         <td> <%= link_to "Go To Hub", tutor_client_relationship_path(tutorclient.id) %> </td>
+        <td><%= link_to "Delete",tutor_client_relationship_path(tutorclient.id), method: :delete %></td>
         
       <% end %>
       <% end %>
@@ -85,7 +87,7 @@
 
   <% if Family.where(parentID: current_user.id).first != nil %>
     <!-- The following is how the hub looks when there is a parent signed in. In that case it is called a Parental Control Page-->
-    <h1><%= current_user.forename%>'s Parental Access</h1>
+    <h1>Parental Access</h1>
     <% check = TutorClientRelationship.all %>
     <% if check.first == nil %>
       <p> Your child has no tutors at the moment!</p>
@@ -104,7 +106,7 @@
                 <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
                 <td><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></td>
                 <td> <%= link_to "Go To Hub", tutor_client_relationship_path(tutorclient.id) %> </td>
-                <td><%= link_to "Delete relationship",tutor_client_relationship_path(tutorclient.id), method: :delete %></td>
+                <td><%= link_to "Delete",tutor_client_relationship_path(tutorclient.id), method: :delete %></td>
               <% end %>
               <% end %>
               <% end %>
@@ -117,7 +119,7 @@
 
 <% if current_user.role == 'adult'%>
   <!-- The following is how the hub looks when there is an adult non-parent signed in. In that case it is a standard Learning Center-->
-  <h1><%= current_user.forename%>'s Personal Learning Center</h1>
+  <h1>Personal Learning Center</h1>
   <% check = TutorClientRelationship.all %>
   <% if check.first == nil %>
     <p> You haven't signed up to any tutors yet!</p>
@@ -133,7 +135,7 @@
             <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
             <td><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></td>
             <td> <%= link_to "Go To Hub", tutor_client_relationship_path(tutorclient.id) %> </td>
-            <td><%= link_to "Delete relationship",tutor_client_relationship_path(tutorclient.id), method: :delete %></td>
+            <td><%= link_to "Delete",tutor_client_relationship_path(tutorclient.id), method: :delete %></td>
           <% end %>
       <% end %>
     <% end %>
@@ -145,7 +147,7 @@
 
   <% if Family.where(parentID: current_user.id).first != nil %>
     <!-- The following is how the hub looks when there is a parent signed in. In that case it is called a Parental Control Page-->
-    <h1><%= current_user.forename%>'s Parental Access</h1>
+    <h1>Parental Access</h1>
     <% check = TutorClientRelationship.all %>
     <% if check.first == nil %>
       <p> Your child has no tutors at the moment!</p>
@@ -164,7 +166,7 @@
                 <td><%= Subject.where(subjectID: tutorclient.subjectID).first.name %> </td>
                 <td><%= User.where(id: tutorclient.tutorID).first.forename%> <%= User.where(id: tutorclient.tutorID).first.surname%></td>
                 <td> <%= link_to "Go To Hub", tutor_client_relationship_path(tutorclient.id) %> </td>
-                <td><%= link_to "Delete relationship",tutor_client_relationship_path(tutorclient.id), method: :delete %></td>
+                <td><%= link_to "Delete",tutor_client_relationship_path(tutorclient.id), method: :delete %></td>
               <% end %>
               <% end %>
               <% end %>
