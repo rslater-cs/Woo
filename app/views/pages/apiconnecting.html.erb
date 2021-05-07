@@ -1,27 +1,33 @@
-<p>Room list of rooms</p>
-<table>
-  <tr>
-    <th>Room number</th>
-    <th>link to room</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td><%= link_to 'Room 1', pages_room1_path %> </td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td><%= link_to 'Room 2', pages_room2_path %> </td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td><%= link_to 'Room 3', pages_room3_path %> </td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td><%= link_to 'Room 4', pages_room4_path %> </td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td><%= link_to 'Room 5', pages_room5_path %> </td>
-  </tr>
+<h1>Public Rooms</h1>
+<p>These are public room.</p>
+<p>Please be respectful of other users.</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope = "col">Room</th>
+      <th scope = "col">Link</th>
+    </tr>
+  </thead>
+    <tr>
+      <th scope = "row">1</th>
+      <td><%= link_to 'Room 1', pages_room1_path, target: '_blank' %> </td>
+    </tr>
+    <tr>
+      <th scope = "row">2</th>
+      <td><%= link_to 'Room 2', pages_room2_path, target: '_blank' %> </td>
+    </tr>
+    <tr>
+      <th scope = "row">3</th>
+      <td><%= link_to 'Room 3', pages_room3_path, target: '_blank' %> </td>
+    </tr>
+    <tr>
+      <th scope = "row">4</th>
+      <td><%= link_to 'Room 4', pages_room4_path, target: '_blank' %> </td>
+    </tr>
+    <tr>
+      <th scope = "row">5</th>
+      <td><%= link_to 'Room 5', pages_room5_path, target: '_blank' %> </td>
+    </tr>
 </table>
+
+<p><strong>We do not tolerate any misuse of these public rooms!</strong></p>

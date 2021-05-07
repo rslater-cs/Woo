@@ -149,6 +149,7 @@ class TutorClientRelationshipsController < ApplicationController
   def delete_room
     puts params
     client.delete_room(params[:id])
+    flash.alert = 'Room Destroyed!'
     redirect_to tutor_client_relationship_path(params[:id])
   end
 

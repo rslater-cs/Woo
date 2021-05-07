@@ -1,10 +1,11 @@
 <h1> Your Hub Area </h1>
 
 <p1> Current Tutor: </p1>
-<%= User.where(id: @tutor_client_relationship.tutorID).first.forename %>
+<%= User.where(id: @tutor_client_relationship.tutorID).first.full_name %>
 <br>
 <p1> Current Client: </p1>
-<%= User.where(id: @tutor_client_relationship.clientID).first.forename %>
+<%= User.where(id: @tutor_client_relationship.clientID).first.full_name %>
+
 <br>
 <br>
 <br>
@@ -24,18 +25,21 @@
 
 
 <br>
+<br>
+<br>
+
 <h4> Sessions </h4>
 
-<% if @client.check_room(String(@tutor_client_relationship.relID)).code == '200' %>
-    <%= link_to 'Join Session', room_path(:id => @tutor_client_relationship.relID), target: '_blank' %>
+<% if @client.check_room(String(@tutor_client_relationship.id)).code == '200' %>
+    <%= link_to 'Join Session', room_path(:id => @tutor_client_relationship.id), target: '_blank' %>
     
     <% if current_user.role == 'tutor' %>
         <br>
-        <%= link_to 'Delete Session', delete_room_path(:id => @tutor_client_relationship.relID) %>
+        <%= link_to 'Delete Session', delete_room_path(:id => @tutor_client_relationship.id) %>
     <%end%>
 <% else %>
     <% if current_user.role == 'tutor' %>
-        <%= link_to 'Start Session', room_path(:id => @tutor_client_relationship.relID, target: '_blank')%>
+        <%= link_to 'Start Session', room_path(:id => @tutor_client_relationship.id, target: '_blank')%>
     <% else%>
         <p>No active sessions!</p>
     <% end %>
