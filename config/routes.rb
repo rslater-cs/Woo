@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :tutor_client_relationships do
     post 'comments', to: 'comments#create'
   end
+  resources :reviews
 
   devise_for :users, :path => 'u'
   resources :users, only: [:index, :show, :new, :edit, :update, :create]
