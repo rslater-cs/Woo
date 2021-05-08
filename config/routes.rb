@@ -18,7 +18,6 @@ Rails.application.routes.draw do
 
   get 'pages/about_us'
   get 'pages/contact'
-  get 'pages/hub'
   get 'pages/apiconnecting'
   get 'pages/room1'
   get 'pages/room2'

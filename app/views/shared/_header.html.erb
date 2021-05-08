@@ -28,24 +28,24 @@
 
               <% if current_user.role == 'tutor' %>
                 <li class="nav-item">
-                  <%= link_to "Teaching Center", pages_hub_path, class: "nav-link nav-hover" %>
+                  <%= link_to "Teaching Center", tutor_client_relationships_path, class: "nav-link nav-hover" %>
                 </li>
               <% end %>
 
               <% if current_user.role == 'child' %>
                 <li class="nav-item">
-                  <%= link_to "Learning Center", pages_hub_path, class: "nav-link nav-hover" %>
+                  <%= link_to "Learning Center", tutor_client_relationships_path, class: "nav-link nav-hover" %>
                 </li>
               <% end %>
 
               <% if current_user.role == 'adult' %>
                 <% if Family.where(parentID: current_user.id).first != nil %>
                   <li class="nav-item">
-                    <%= link_to "Parental Control Page", pages_hub_path, class: "nav-link nav-hover" %>
+                    <%= link_to "Parental Control Page", tutor_client_relationships_path, class: "nav-link nav-hover" %>
                   </li>
                 <% else %>
                   <li class="nav-item">
-                    <%= link_to "Learning Center", pages_hub_path, class: "nav-link nav-hover" %>
+                    <%= link_to "Learning Center", tutor_client_relationships_path, class: "nav-link nav-hover" %>
                   </li>
                 <% end %>
               <% end %>
