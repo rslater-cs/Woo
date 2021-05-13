@@ -5,6 +5,6 @@ class ContactMailer < ApplicationMailer
     @telephone = telephone
     @message = message
 
-    mail cc: @email
+    #mail cc: @email
   end
 end
