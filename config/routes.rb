@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   #THIS NEEDS TO BE ABOVE THE RESOURCES!!!
   get 'users/legal'
+  get 'become_tutor', to: 'users#become_tutor', as: 'become_tutor'
   resources :subjects
   resources :tutor_subjects
   resources :families
@@ -10,7 +11,8 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, :path => 'u'
-  resources :users, only: [:index, :show, :new, :edit, :update, :create]
+  resources :users, only: [:show, :new, :edit, :update, :create]
+  #resources :users, only: [:index, :show, :new, :edit, :update, :create]
   #resources :users do
     #resources :recruiters #-> url.com/users/:user_id/recruiters
   #end

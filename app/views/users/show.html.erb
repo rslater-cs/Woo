@@ -34,4 +34,7 @@ Finally a access entry is created which holds the relationship id and a nil valu
 	<% if current_user.role == 'adult' || current_user.role == 'tutor' %>
 		<%= link_to 'Create Child Account', users_legal_path %>
 	<% end %>
+	<% if current_user.role == 'adult' %>
+		<%= link_to 'Become Tutor', become_tutor_path %>
+	<% end %>
 <% end %>

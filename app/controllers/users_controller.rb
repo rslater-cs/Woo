@@ -1,14 +1,8 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!, only: [:show]
 
-
-	def index
-		@users = User.all
-		@tutor_subjects = TutorSubject.all
-	end
-
 	def show
-	  	@user = User.find(params[:id])
+	  	@user = current_user
 	end
 
 	def new
@@ -33,6 +27,16 @@ class UsersController < ApplicationController
 	end
 
 	def legal
+	end
+
+	def become_tutor
+		@user = current_user
+		@user.role = 'tutor'
+		if @user.save
+			redirect_to user_path(@user), notice: "User successfully updated"
+		else
+			redirect_to user_path(@user), alert: "Failed to update user"
+		end
 	end
 
 	def create
