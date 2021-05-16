@@ -23,8 +23,20 @@ Finally a access entry is created which holds the relationship id and a nil valu
     subjects = subj
     subjects.each { |subject|%>
       <%=button_to subject[0], tutor_booking_path(tutorID: @user.id, clientID: current_user.id, subjectID: subject[1]), method: :post%>
-    <%}
-  end %>
+    <%}%>
+  <%session[:tutorID] = @user.id %>
+  <%= button_to "Review Tutor", new_review_path(tutorID: @user.id), method: :get%>
+  <p> Reviews </p>
+  <% reviews = get_reviews
+     reviews.each { |review| %>
+    <div class="card">
+      <p><%=review[0] %></p>
+      <p><%="Rating: " + review[1].to_s %></p>
+      <p><%=review[2] %></p>
+    </div>
+  <% }
+  %>
+  <% end %>
 
 <% if current_user.id == @user.id %>
 	<p><strong><u>Private Info</u></strong></p>

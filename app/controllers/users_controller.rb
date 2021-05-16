@@ -85,13 +85,33 @@ class UsersController < ApplicationController
 			relationship.save!
 			access = Access.new(relID: maxkey)
 			access.save!
-			redirect_to pages_hub_path, notice: 'Booking saved successfully'
+			redirect_to tutor_client_relationships_path, notice: 'Booking saved successfully'
 		else
 			redirect_to user_path(tutorID), alert: 'Booking failed: Invalid arguments'
 		end
 	end
 
-	helper_method :subj
+	def get_reviews
+		reviews = Review.where(tutorID: @user.id)
+		review_arr = []
+
+		reviews.each do |review|
+			content = []
+			user = User.where(id: review.userID).first
+			username = "Anon"
+			unless user.nil?
+				username = user.forename
+			end
+			content.append(username)
+			content.append(review.rating)
+			content.append(review.content)
+			review_arr.append(content)
+		end
+
+		return review_arr
+	end
+
+	helper_method :subj, :get_reviews
 
 	private
 
@@ -120,6 +140,7 @@ class UsersController < ApplicationController
 			:password_confirmation,
 		)
 	end
+
 
 	def update_user_params
 		params.require(:user).permit(

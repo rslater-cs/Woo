@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_170207) do
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2021_05_08_103425) do
+=======
+ActiveRecord::Schema.define(version: 2021_05_06_163351) do
+>>>>>>> 6e369ecf98561f9ae9fc6004d9557dac872c50d5
 
   create_table "accesses", force: :cascade do |t|
     t.integer "relID"
@@ -64,12 +68,18 @@ ActiveRecord::Schema.define(version: 2021_05_06_170207) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "rooms", force: :cascade do |t|
-    t.integer "relID"
+<<<<<<< HEAD
+  create_table "reviews", force: :cascade do |t|
+    t.integer "tutorID"
+    t.integer "userID"
+    t.integer "rating"
+    t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+=======
+>>>>>>> 6e369ecf98561f9ae9fc6004d9557dac872c50d5
   create_table "subjects", force: :cascade do |t|
     t.integer "subjectID"
     t.string "name"

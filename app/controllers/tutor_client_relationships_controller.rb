@@ -1,5 +1,14 @@
 class TutorClientRelationshipsController < ApplicationController
   before_action :check_user, :set_tutor_client_relationship, only: %i[ show edit update destroy ]
+  before_action :check_index, only: %i[ index ]
+
+  def check_index
+    if current_user == nil
+      flash.alert = "Not allowed!"
+      redirect_to root_path
+    end
+  end
+
 
   def check_user
 
@@ -37,8 +46,23 @@ class TutorClientRelationshipsController < ApplicationController
 
   # GET /tutor_client_relationships or /tutor_client_relationships.json
   def index
-    @tutor_client_relationships = TutorClientRelationship.all
-    redirect_to pages_hub_path
+    # ---Fetches all the tutors of the current user.
+    @tutor_relationships = TutorClientRelationship.where(clientID: current_user.id)
+
+    # ---Fetches all the clients of the current user.
+    @client_relationships = TutorClientRelationship.where(tutorID: current_user.id)
+    
+    # ---Fetches all of the tutors of the current user's children.
+    @children = Family.where(parentID: current_user.id)
+
+    # Create array of just the children's IDs.
+    @children_ids = []
+    @children.each do |child|
+      @children_ids.push(child.childID)
+    end
+
+    @children_tutor_relationships = TutorClientRelationship.where(clientID: [@children_ids])
+
   end
 
   # GET /tutor_client_relationships/1 or /tutor_client_relationships/1.json

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :tutor_client_relationships do
     post 'comments', to: 'comments#create'
   end
+  resources :reviews
 
   devise_for :users, :path => 'u'
   resources :users, only: [:show, :new, :edit, :update, :create]
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
 
   get 'pages/about_us'
   get 'pages/contact'
-  get 'pages/hub'
   get 'pages/apiconnecting'
   get 'pages/room1'
   get 'pages/room2'
