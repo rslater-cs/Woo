@@ -103,6 +103,26 @@ subject_relationships.each do |subject|
 	)
 	sub.save
 end
+
+reviews = [
+	{ tutorID: 5, userID: 1, rating: 4, content: "Great tutor"},
+	{ tutorID: 5, userID: 6, rating: 3, content: "Good tutor"},
+	{ tutorID: 5, userID: 7, rating: 5, content: "Amazing tutor"}
+]
+
+reviews.each do |review|
+  rev = Review.where(
+    id: review[:id]
+	).first_or_initialize
+
+	sub.update!(
+    tutorID: review[:tutorID],
+    userID: review[:userID],
+    rating: review[:rating],
+    content: review[:content]
+	)
+	sub.save
+end
 #https://woo.daily.co/AzBB8nNxTbL0GbzSRH4b'
 #https://woo.daily.co/iv0CvnRxugx5siDOZo3E'
 #'https://woo.daily.co/Z3mPmVGlOLxFqJI81Ake'
