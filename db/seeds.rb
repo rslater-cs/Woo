@@ -115,13 +115,13 @@ reviews.each do |review|
     id: review[:id]
 	).first_or_initialize
 
-	sub.update!(
+  rev.update!(
     tutorID: review[:tutorID],
     userID: review[:userID],
     rating: review[:rating],
     content: review[:content]
 	)
-	sub.save
+  rev.save
 end
 #https://woo.daily.co/AzBB8nNxTbL0GbzSRH4b'
 #https://woo.daily.co/iv0CvnRxugx5siDOZo3E'
