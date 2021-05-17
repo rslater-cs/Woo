@@ -56,7 +56,7 @@ class UsersController < ApplicationController
 		@tutor_subjects = Subject.where(subjectID: @tutor_subjects)
 		subs = []
 		@tutor_subjects.each do |tutor_subject|
-			subs.append([tutor_subject.name.capitalize!, tutor_subject.subjectID])
+			subs.append([tutor_subject.name, tutor_subject.subjectID])
 		end
 	return subs
 	end

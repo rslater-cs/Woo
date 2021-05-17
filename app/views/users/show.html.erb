@@ -19,6 +19,9 @@ Finally a access entry is created which holds the relationship id and a nil valu
 	<p> To get in contact with a tutor, please book one of the subjects they offer below. </p>
 	<p> Please note that you can only book one tutor for each subject <p>
 	<p><strong>Subjects:</strong><p>
+  <%@tutor_subjects = TutorSubject.where(tutorID: @user.id).select(:subjectID)
+    @tutor_subjects = Subject.where(subjectID: @tutor_subjects) %>
+  <%= @tutor_subjects.inspect %>
 	<%
     subjects = subj
     subjects.each { |subject|%>
