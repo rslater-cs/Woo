@@ -111,6 +111,37 @@ class UsersController < ApplicationController
 		return review_arr
 	end
 
+	def add_subject
+		sub_name = params[:subject_name]
+		if sub_name.empty?
+			redirect_to user_path(current_user.id), alert: "Text field must be filled"
+			return
+		end
+		matches = Subject.where(name: sub_name)
+
+		maxkey = TutorSubject.maximum("relID")
+		relkey = maxkey+1
+		subkey = 0
+		if matches.length > 0
+			subkey = matches[0].subjectID
+		else
+			maxsubkey = Subject.maximum("subjectID")
+			new_sub = Subject.new(subjectID: maxsubkey+1, name: sub_name)
+			subkey = maxsubkey+1
+			unless new_sub.save
+				redirect_to user_path(current_user.id), notice: "New subject could not be made"
+				return
+			end
+		end
+
+		new_ts = TutorSubject.new(relID: relkey, tutorID: current_user.id, subjectID: subkey)
+		if new_ts.save
+			redirect_to user_path(current_user.id), notice: "New subject created"
+		else
+			redirect_to user_path(current_user.id), alert: "Subject relationship failed to save"
+		end
+	end
+
 	helper_method :subj, :get_reviews
 
 	private
@@ -127,6 +158,10 @@ class UsersController < ApplicationController
 		:tutorID,
 		:clientID,
 		:subjectID
+		)
+
+		params.except(:sub).permit(
+			:subject_name
 		)
 	end
 

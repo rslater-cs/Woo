@@ -38,6 +38,7 @@ Finally a access entry is created which holds the relationship id and a nil valu
   %>
   <% end %>
 
+
 <% if current_user.id == @user.id %>
 	<p><strong><u>Private Info</u></strong></p>
 	<p><strong>Phone:</strong> <%= @user.phone %></p>
@@ -49,4 +50,11 @@ Finally a access entry is created which holds the relationship id and a nil valu
 	<% if current_user.role == 'adult' %>
 		<%= link_to 'Become Tutor', become_tutor_path %>
 	<% end %>
+  <% if current_user.role == 'tutor' %>
+    <%= form_with url: add_subject_path, method: :post do |form| %>
+      <%= form.label :subject_name, "New Subject:" %>
+      <%= form.text_field :subject_name%>
+      <%= form.submit "Add"%>
+    <% end %>
+  <% end %>
 <% end %>
