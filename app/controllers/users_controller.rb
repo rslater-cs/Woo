@@ -111,6 +111,18 @@ class UsersController < ApplicationController
 		return review_arr
 	end
 
+	def average_reviews
+		reviews = get_reviews
+		total = 0.0
+		num_of_reviews = reviews.length
+
+		reviews.each do |review|
+			total += review[1]
+		end
+
+		total / num_of_reviews
+	end
+
 	def add_subject
 		sub_name = params[:subject_name]
 		if sub_name.empty?
@@ -142,7 +154,7 @@ class UsersController < ApplicationController
 		end
 	end
 
-	helper_method :subj, :get_reviews
+	helper_method :subj, :get_reviews, :average_reviews
 
 	private
 
