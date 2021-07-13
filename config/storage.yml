@@ -11,8 +11,8 @@ amazon:
   service: S3
 #   access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
 #   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
-  access_key_id: AKIA26JH5ABD4SRATMVF
-  secret_access_key: iiBc9a+l9uVs7p4hYMPsqg/X7/SDDVuC0++BcpTT
+  access_key_id: #add your own
+  secret_access_key: #add your own
   region: eu-west-2
   bucket: woo-file-uploads
 
